@@ -56,6 +56,16 @@ app.get('/api/movies/:id',(req, res)=>{
     })
 })
 
+app.delete('/api/movies/:id', (req, res)=>{
+    console.log(req.params.id);
+
+    movieModel.findByIdAndDelete({_id:req.params.id},
+         (err, data)=>{
+        res.send(data);
+    })
+})
+
+
 app.post('/api/movies', (req, res) => {
     console.log(req.body);
 
